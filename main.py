@@ -18,9 +18,12 @@ def isValid(email):
 otpcode = str(random.randint(100000, 999999))
 timenow = ''
 
+# Sender
 email_sender = user
 email_password = password
 
+os.system('cls')
+#Receiever Email
 email_receiver = input('Enter email to send OTP Code: ')
 
 if not isValid(email_receiver):
@@ -43,19 +46,29 @@ with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
     print('OTP Code Send Successfully\nDo not forget to check your spam mail')
 
 print()
+print('\rOTP Code will expire within 5 minutes')
+print()
+
+# Input OTP Code
 inputcode = str(int(input('OTP Code: ')))
 tmptime = datetime.now()
 
 expiration = int(timenow.strftime('%M'))
 expire = int(tmptime.strftime('%M'))
 
-if expire - 2 > expiration:
+# time sent sa otp 04m
+# expiration = 4m
+# expire = 5m
+# 
+
+if expire - 5 > expiration:#5 - 2 = 3 greater than 4 false
     print('\rOTP Code Expires')
     exit()
 else:
-    if inputcode == otpcode:
+    if inputcode == otpcode: #
         os.system('cls')
         print('Ok!\nSuccess')
     else:
         os.system('cls')
         print('Incorrect Code')
+        exit()
