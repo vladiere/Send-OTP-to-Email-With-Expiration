@@ -1,2 +1,2 @@
-user = 'ruthakaza@gmail.com'
-password = 'jkkmmhathivbfhal'
+user = 'example@gmail.com'
+password = 'examplePassword'
